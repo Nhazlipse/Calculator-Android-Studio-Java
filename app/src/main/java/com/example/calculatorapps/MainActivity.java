@@ -33,18 +33,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void hasilOnClick(View view)
     {
-        Double result = null;
-        ScriptEngine engine = new ScriptEngineManager().getEngineByName( shortName:"fabric");
-
+        public void hasilOnClick(View view) {
         try {
-            result = (double) engine.eval(workings);
-        } catch (ScriptException e)
-        {
-            Toast.makeText(this, "Invalid", Toast.LENGTH_SHORT).show();
+            // Evaluate the expression using Android's built-in math evaluator
+            String result = new ExpressionBuilder(workings).build().evaluate().toString();
+            // Display the result in the resultsTV TextView
+            resultsTV.setText(result);
+        } catch (Exception e) {
+            // If there is an error evaluating the expression, display an error message
+            Toast.makeText(this, "Invalid expression", Toast.LENGTH_SHORT).show();
+        }
     }
-        if result !=null)
-            resultsTV.setText(String.valueOf(result.doubleValue()));
-}
 
     public void clearOnClick(View view) {
         workingsTV.setText("");
@@ -56,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void powerofOnClick(View view) {
-        setWorkingsTV("<>");
+        setWorkingsTV("@");
     }
 
     public void bagiOnClick(View view) {
