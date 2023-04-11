@@ -16,6 +16,17 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    // This block encapsulates custom properties and makes them available to all
+// modules in the project. The following are only a few examples of the types
+// of properties you can define.
+    ext {
+        sdkVersion = 33
+        // You can also create properties to specify versions for dependencies.
+        // Having consistent versions between modules can avoid conflicts with behavior.
+        appcompatVersion = "1.6.1"
+
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -30,7 +41,7 @@ android {
 
 dependencies {
 
-    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation "androidx.appcompat:appcompat:${rootProject.ext.appcompatVersion}"
     implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'io.fabric.sdk.android:fabric:1.4.8'
